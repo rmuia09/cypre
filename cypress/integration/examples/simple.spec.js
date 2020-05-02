@@ -2,13 +2,13 @@
 import { navigateTo } from "../../pages/navigationlinks"
 //import { logOutNotOnboardedUser } from '../pages/NavigationBar'
 
-describe('TBFX home page', () => {
+describe('Trade BFXf home page', () => {
     before(function() {
       cy.viewport(1601, 1050)
       cy.visit('/');
     })
     
-    it('check all links!', () => {
+    it('check all linkss!', () => {
       navigateTo.HomePage()
 
       //cy.get('#login-title').should('be.visible')
