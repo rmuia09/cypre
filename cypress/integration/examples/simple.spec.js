@@ -4,7 +4,7 @@ import { navigateTo } from "../../pages/navigationlinks"
 
 describe('TBFX home page', () => {
     before(function() {
-      cy.viewport(1601, 1050)
+      cy.viewport(1901, 1050)
       cy.visit('/');
     })
     
