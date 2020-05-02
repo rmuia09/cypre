@@ -1,4 +1,8 @@
 
+//import { logOutNotOnboardedUser } from '../pages/NavigationBar'
+//const logintitle = '#login-title'
+
+
 
 export class NavigationLink{
 
