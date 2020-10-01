@@ -1,7 +1,7 @@
 {
   "name": "cypr",
   "version": "1.0.0",
-  "description": "TradeBFX Test Automation with Cypress",
+  "description": "Test Automation with Cypress",
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",

@@ -1,42 +1,64 @@
 
-import { navigateTo } from "../../pages/navigationlinks"
+//import { navigateTo } from "../../pages/navigationlinks"
+import * as navigationlinks from '../../pages/navigationlinks'
 //import { logOutNotOnboardedUser } from '../pages/NavigationBar'
 
-describe('TBFX home pagez', () => {
-    before(function() {
-      cy.viewport(1901, 1050)
-      cy.visit('/');
+describe.skip('TBFX home pagez', () => {
+  // before(function() {
+  beforeEach(() => {
+    //cy.viewport(1901, 1050)
+    cy.visit('/');
+  })
+
+  it('implicit wait test', () => {
+    cy.wait(1000) 
+  })
+
+  it('Pause test', () => {
+    cy.pause()
+  })
+
+  it('check all links!', () => {
+    navigationlinks.SignupPage()
+  })
+
+ })
+
+
+
+  describe('Browser Actions ', () => {
+    // before(function() {
+    beforeEach(() => {
+      //cy.viewport(1901, 1050)
+      cy.visit('http://books.toscrape.com/')
+      cy.log('Before reload')
+      cy.reload()
+      cy.log('After reload')
     })
-    
-    it('check all links!', () => {
-      navigateTo.HomePage()
-
-      //cy.get('#login-title').should('be.visible')
-      //cy.contains('#login-registerLnk').click()
-    //})
-
-    //it('check signup page!', () => {
-      navigateTo.SignupPage()
-      //cy.get('#login-registerLnk').click() 
-      //cy.get('#register-title').should('be.visible')
-      //cy.url().should ('include', '/register')
-    //})
-
-    //it('check signin page!', () => {
-      navigateTo.SigninPage()
-      //cy.get('#quickLinks-loginInHereLnk').click()  
-      //cy.url().should('include', '/signin')
-      //cy.contains('og in here').click()  
-    //})
-    //it('check reset password page!', () => {
-      navigateTo.ResetpwdPage()
-      //cy.get('#login-resetPasswordLnk').click()  
-      //cy.get('#resetPassword-pageTitle').should('be.visible') 
-      //cy.url().should ('include', '/reset-password')
-      //cy.url().should('include', '/signin')
-      //cy.contains('log in here').click()  
+  
+    it('check that the site contains toscrape.com', () => {
+      cy.url().should('include', 'toscrape.com')
     })
+  
+    it('I should be able to click on Mystery Category and check that Mystery Page contains correct text', () => {
+      cy.get('a').contains('Mystery').click()
+      cy.get('div.page-header.action h1').should( "have.text", 'Mystery' )
+      //cy.get('.product_pod').its('length').should('eq', 20)
+    })
+  
+    it('should display the correct number of books', () => {
+      cy.get('.product_pod').its('length').should('eq', 20)
+     
     })
 
+    it('navigate to poetry , click Olio and verify price', () => {
+      cy.get('a').contains('Poetry').click()
+      cy.get('a').contains('Olio').click()
+      cy.get('.price_color').contains('£23.88').click()
+     
+    })
+ 
+  
 
+})
 
